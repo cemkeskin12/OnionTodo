@@ -12,7 +12,7 @@ using OT.Persistence.Context;
 namespace OT.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220428200807_initial")]
+    [Migration("20220430210038_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

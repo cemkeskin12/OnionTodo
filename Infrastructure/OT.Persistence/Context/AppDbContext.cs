@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OT.Application.Interfaces;
+using OT.Application.Interfaces.Context;
 using OT.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OT.Persistence.Context
 {
@@ -16,10 +11,5 @@ namespace OT.Persistence.Context
 
         }
         public DbSet<Article> Articles { get; set; }
-
-        public async Task<int> SaveChangesAsync()
-        {
-            return await base.SaveChangesAsync();
-        }
     }
 }

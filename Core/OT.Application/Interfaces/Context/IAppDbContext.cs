@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OT.Application.Interfaces
+namespace OT.Application.Interfaces.Context
 {
     public interface IAppDbContext
     {
         DbSet<Article> Articles { get; set; }
-        Task<int> SaveChangesAsync();
     }
 }

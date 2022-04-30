@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace OT.Domain.Common
 {
-    public class BaseEntity : IBaseEntity
+    public interface IBaseEntity
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 }
