@@ -10,7 +10,7 @@ namespace OT.Application.Interfaces.UnitOfWorks
 {
     public interface IUnitOfWork : IAsyncDisposable
     {
-        Task<IDbContextTransaction> BeginTransactionAsync();
+        Task<int> SaveAsync();
         public IArticleRepository ArticleRepository { get; }
     }
 }

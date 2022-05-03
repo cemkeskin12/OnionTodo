@@ -14,25 +14,17 @@ namespace OT.Application.Features.ArticleFeatures.Commands
 
         public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand>
         {
-            private readonly IAppDbContext dbContext;
-            private readonly IArticleRepository articleRepository;
             private readonly IUnitOfWork unitOfWork;
 
-            public CreateArticleCommandHandler(IAppDbContext dbContext, IArticleRepository articleRepository, IUnitOfWork unitOfWork)
+            public CreateArticleCommandHandler(IUnitOfWork unitOfWork)
             {
-                this.dbContext = dbContext;
-                this.articleRepository = articleRepository;
                 this.unitOfWork = unitOfWork;
             }
             public async Task<Unit> Handle(CreateArticleCommand request, CancellationToken cancellationToken)
             {
-                var article = new Article();
-                article.Title = request.Title;
-                article.Content = request.Content;
-                article.Note = request.Note;
-                article.CreatedDate = DateTime.Now;
+                var article = new Article(request.Title,request.Content,request.Note);
                 await unitOfWork.ArticleRepository.AddAsync(article);
-                await unitOfWork.BeginTransactionAsync();
+                await unitOfWork.SaveAsync();
                 return await Task.FromResult(Unit.Value);
 
             }

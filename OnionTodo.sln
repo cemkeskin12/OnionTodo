@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{58BF3878-7542-4AA7-9CDA-94AAF2476188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Application", "Core\OT.Application\OT.Application.csproj", "{477DA2A5-B59B-4E93-B42A-16F072A245F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Application", "Core\OT.Application\OT.Application.csproj", "{477DA2A5-B59B-4E93-B42A-16F072A245F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Domain", "Core\OT.Domain\OT.Domain.csproj", "{CEBD67B2-3105-4710-A4C5-8A5F4D46A734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Domain", "Core\OT.Domain\OT.Domain.csproj", "{CEBD67B2-3105-4710-A4C5-8A5F4D46A734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.WebAPI", "Presentation\OT.WebAPI\OT.WebAPI.csproj", "{8053E109-FBA3-42DA-B9D4-E529552E8C98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.WebAPI", "Presentation\OT.WebAPI\OT.WebAPI.csproj", "{8053E109-FBA3-42DA-B9D4-E529552E8C98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Persistence", "Infrastructure\OT.Persistence\OT.Persistence.csproj", "{92D64362-2B9A-47EA-8D15-5FD65C3DC263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Persistence", "Infrastructure\OT.Persistence\OT.Persistence.csproj", "{92D64362-2B9A-47EA-8D15-5FD65C3DC263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OT.Infrastructure", "Infrastructure\OT.Infrastructure\OT.Infrastructure.csproj", "{D10836A8-73D3-420B-868E-9A33955838D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OT.Infrastructure", "Infrastructure\OT.Infrastructure\OT.Infrastructure.csproj", "{D10836A8-73D3-420B-868E-9A33955838D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

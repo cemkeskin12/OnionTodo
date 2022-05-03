@@ -21,13 +21,14 @@ namespace OT.Persistence.UnitOfWorks
             this.ArticleRepository = articleRepository;
         }
 
-        public async Task<IDbContextTransaction> BeginTransactionAsync()
+        public async Task<int> SaveAsync()
         {
-            return await dbContext.Database.BeginTransactionAsync();
+            return await dbContext.SaveChangesAsync();
         }
 
         public async ValueTask DisposeAsync()
         {
+            await dbContext.DisposeAsync();
         }
     }
 }
