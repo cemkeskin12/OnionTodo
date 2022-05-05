@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OT.Application.Features.DependencyInjection;
 using OT.Application.Interfaces.Context;
 using OT.Application.Interfaces.Repositories;
 using OT.Application.Interfaces.UnitOfWorks;

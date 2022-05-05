@@ -19,21 +19,21 @@ namespace OT.Domain.Entities
         public void SetNote(string note)
         {
             if (string.IsNullOrEmpty(note))
-                throw new Exception("Boş geçilemez");
+                throw new Exception("Not alanı boş geçilemez!");
             Note = note;
         }
 
         public void SetContent(string content)
         {
             if (string.IsNullOrEmpty(content))
-                throw new Exception("Boş geçilemez");
+                throw new Exception("İçerik alanı boş geçilemez");
             Content = content;
         }
 
         public void SetTitle(string title)
         {
             if (string.IsNullOrEmpty(title))
-                throw new Exception("Boş geçilemez");
+                throw new Exception("Başlık alanı boş geçilemez");
             Title = title;
         }
 

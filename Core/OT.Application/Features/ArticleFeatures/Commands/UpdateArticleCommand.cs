@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OT.Application.Features.DependencyInjection;
 using OT.Application.Interfaces.UnitOfWorks;
 
 namespace OT.Application.Features.ArticleFeatures.Commands
@@ -10,22 +11,20 @@ namespace OT.Application.Features.ArticleFeatures.Commands
         public string Content { get; set; }
         public string Note { get; set; }
     }
-    public class UpdateArticleCommandHandler : IRequestHandler<UpdateArticleCommand>
+    public class UpdateArticleCommandHandler : UnitOfWorkDependencyInjection, IRequestHandler<UpdateArticleCommand>
     {
-        private readonly IUnitOfWork unitOfWork;
 
-        public UpdateArticleCommandHandler(IUnitOfWork unitOfWork)
+        public UpdateArticleCommandHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
         }
         public async Task<Unit> Handle(UpdateArticleCommand request, CancellationToken cancellationToken)
         {
-            var article = await unitOfWork.ArticleRepository.GetByIdAsync(request.Id);
+            var article = await UnitOfWork.ArticleRepository.GetByIdAsync(request.Id);
             article.SetTitle(request.Title);
             article.SetContent(request.Content);
             article.SetNote(request.Note);
-            await unitOfWork.ArticleRepository.Update(article);
-            await unitOfWork.SaveAsync();
+            await UnitOfWork.ArticleRepository.Update(article);
+            await UnitOfWork.SaveAsync();
             return await Task.FromResult(Unit.Value);
         }
     }

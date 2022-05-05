@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OT.Application.Features.DependencyInjection;
 using OT.Application.Interfaces.UnitOfWorks;
 using OT.Domain.Entities;
 
@@ -7,18 +8,15 @@ namespace OT.Application.Features.ArticleFeatures.Queries
     public class GetArticleByIdQuery : IRequest<Article>
     {
         public int Id { get; set; }
-        public class GetArticleByIdQueryHandler : IRequestHandler<GetArticleByIdQuery, Article>
+        public class GetArticleByIdQueryHandler : UnitOfWorkDependencyInjection, IRequestHandler<GetArticleByIdQuery, Article>
         {
-            private readonly IUnitOfWork unitOfWork;
-
-            public GetArticleByIdQueryHandler(IUnitOfWork unitOfWork)
+            public GetArticleByIdQueryHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
-                this.unitOfWork = unitOfWork;
             }
 
             public Task<Article> Handle(GetArticleByIdQuery request, CancellationToken cancellationToken)
             {
-                var article = unitOfWork.ArticleRepository.GetByIdAsync(request.Id);
+                var article = UnitOfWork.ArticleRepository.GetByIdAsync(request.Id);
                 return article;
             }
         }
